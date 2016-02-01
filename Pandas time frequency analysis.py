@@ -17,14 +17,14 @@ from fechas import *
 df1 = pd.DataFrame(events)
 df1 = pd.to_datetime(df1[0]*10000 + df1[1]*100 + df1[2], format='%Y%m%d')
 df1 = pd.DataFrame(df1)
-df1['Int'] = pd.Series(np.ones(60))
+df1['Int'] = pd.Series(np.ones(len(df1)+10))
 df1.columns=(['Date', 'Int'])
 #df2 = df2.set_index('Date')
 
 df2 = pd.DataFrame(eventssolo)
 df2 = pd.to_datetime(df2[0]*10000 + df2[1]*100 + df2[2], format='%Y%m%d')
 df2 = pd.DataFrame(df2)
-df2['Ext'] = pd.Series(np.ones(60))
+df2['Ext'] = pd.Series(np.ones(len(df2)+10))
 df2.columns=(['Date', 'Ext'])
 #dfe = dfe.set_index('Date')
 
@@ -46,7 +46,7 @@ for i in [7*4, 7*4*2]:
     df['Ext Moving average %sw' % (int(i/7))] = dfj[:-(i-1)]
 
 df.loc[:,['Int', 'Ext Moving average 8w', 'Int Moving average 8w']].plot(figsize=(8,4), cmap='Blues')
-#plt.ylim(0, 2)
+plt.xlim(df.index[0], df.index.max()+10)
 plt.show()
 
 #%% histogram
