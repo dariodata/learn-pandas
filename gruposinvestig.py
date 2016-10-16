@@ -3,6 +3,8 @@
 """
 Created on Tue Jan 19 16:18:08 2016
 
+Visualization of data from a research grant register
+
 @author: arcosdid
 """
 import numpy as np
@@ -39,18 +41,3 @@ df.pivot_table(values='precio', index='bandera', columns='producto').plot(kind='
 plt.legend(loc='center left', fontsize=8, bbox_to_anchor=(1, 0.5))
 plt.show()
 
-
-#%%
-tuples = list(zip(*[['bar', 'bar', 'baz', 'baz','foo', 'foo', 'qux', 'qux'],['one', 'two', 'one', 'two','one', 'two', 'one', 'two']]))
- 
-index = pd.MultiIndex.from_tuples(tuples, names=['first', 'second'])
-df = pd.DataFrame(np.random.rand(8, 2), index=index, columns=['A', 'B'])
-df2 = df[:4]
-df2
-
-t=df2.unstack(level=0)
-plt.plot(t[[0]], color='red')
-plt.plot(t[[1]], color='blue')
-plt.xticks(range(2), ['one','two'], size='small')
-
-plt.show()

@@ -3,6 +3,8 @@
 """
 Created on Wed Jan 20 22:00:45 2016
 
+Reads a csv file with glucose levels and plots a histogram and moving average
+
 @author: arcosdid
 """
 
@@ -13,7 +15,7 @@ from matplotlib import style
 style.use('ggplot')
 
 #%% Read the csv file
-df = pd.read_csv('CGM-14yo.csv', header=0)
+df = pd.read_csv('/Users/dario/Documents/learn-pandas/CGM-14yo.csv', header=0)
 print(df)
 
 #%% plot histogram for glucose
