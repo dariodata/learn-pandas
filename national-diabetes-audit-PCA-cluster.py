@@ -3,16 +3,19 @@
 """
 Created on Wed Jan 20 22:00:45 2016
 
+PCA and clustering of data from the UK National Diabetes Audit.
+
 @author: arcosdid
 """
 from sklearn import cluster, decomposition
 import pandas as pd
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import style
 style.use('ggplot')
 
 #%% Read the csv file
-df = pd.read_csv('2010-11_NDA_Rept1.csv', header=0, index_col=(0,1))
+df = pd.read_csv('pandas-exercises/2010-11_NDA_Rept1.csv', header=0, index_col=(0,1))
 # Remove the % sign
 for column in list(df.columns.values):
     df[column] = df[column].str.replace('%','')
